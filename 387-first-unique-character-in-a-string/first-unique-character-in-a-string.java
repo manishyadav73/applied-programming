@@ -2,22 +2,12 @@ class Solution {
     public int firstUniqChar(String s) {
         char arr[] = s.toCharArray();
         int n = arr.length;
-
-        for (int i = 0; i < n; i++) {
-            boolean hasDuplicate = false;
-            
-            for (int j = 0; j < n; j++) {
-                
-                if (i != j && arr[i] == arr[j]) {
-                    hasDuplicate = true;
-                    break; 
-                }
-            }
-            
-          
-            if (!hasDuplicate) {
-                return i;
-            }
+        HashMap<Character,Integer>map=new HashMap<>();
+        for(int i=0;i<n;i++){
+            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+        }
+        for(int i=0;i<n;i++){
+            if(map.get(arr[i])==1)return i;
         }
         return -1;
     }
