@@ -1,23 +1,20 @@
 class Solution {
     public int[] sortedSquares(int[] nums) {
-         int low=0;
-         int result[]=new int[nums.length];
-         int high=nums.length-1;
-         int pos=nums.length-1;
-         while(low<=high){
-            int lowsq=nums[low]*nums[low];
-            int highsq=nums[high]*nums[high];
-            if(lowsq<highsq){
-                result[pos]=highsq;
-                high--;
-                pos--;
-            }
+        int n=nums.length;
+        int low=0;
+        int high=n-1;
+        int res[]=new int[n];
+        int pos=n-1;
+        while(low<=high){
+            int sqlow=nums[low]*nums[low];
+            int sqhigh=nums[high]*nums[high];
+            if(sqhigh>sqlow){
+            res[pos--]=sqhigh;
+            high--;}
             else{
-                result[pos]=lowsq;
-                low++;
-                pos--;
-            }
-         }
-return result;
+            res[pos--]=sqlow;
+            low++;}
+        }
+        return res;
     }
 }
