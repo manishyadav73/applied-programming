@@ -1,23 +1,16 @@
 class Solution {
     public int strStr(String haystack, String needle) {
+if(haystack.length()<needle.length())return -1;
 
-        // Edge case
-        if (needle.length() == 0) return 0;
+for(int i=0;i<haystack.length();i++){
+    int j=0;
+    while(j<needle.length()&&(i+j)<haystack.length()){
+        if(haystack.charAt(i+j)!=needle.charAt(j))break;
+        j++;
+    }
+    if(j==needle.length())return i;
+}
 
-        int n = haystack.length();
-        int m = needle.length();
-
-        for (int i = 0; i <= n - m; i++) {
-            int j = 0;
-
-            while (j < m && haystack.charAt(i + j) == needle.charAt(j)) {
-                j++;
-            }
-
-            if (j == m) {
-                return i; // found match
-            }
-        }
-        return -1;
+return -1;
     }
 }
