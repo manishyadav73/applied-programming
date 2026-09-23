@@ -11,7 +11,7 @@ class Solution {
       int left=0;
       int right=n-1;
       while(left<=right){
-        if(list.get(left)!=list.get(right))return false;
+        if(!list.get(left).equals(list.get(right)))return false;
         left++;
         right--;
       }
