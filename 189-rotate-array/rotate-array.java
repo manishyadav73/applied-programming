@@ -1,20 +1,19 @@
-
 class Solution {
-    public static void rev(int nums[],int si,int ei){
-        while(si<=ei){
-            int temp=nums[si];
-            nums[si]=nums[ei];
-            nums[ei]=temp;
-            si++;
-            ei--;
+    private static void rev(int nums[],int left,int right){
+        while(left<right){
+            int temp=nums[left];
+            nums[left]=nums[right];
+            nums[right]=temp;
+            left++;
+            right--;
         }
     }
     public void rotate(int[] nums, int k) {
-       int n=nums.length;
-       if(k%n==0)return;
-       k=k%n;
-       rev(nums,0,n-1);
-       rev(nums,0,k-1);
-       rev(nums,k,n-1);
+        int n=nums.length;
+        if(k%n==0)return;
+        k=k%n;
+        rev(nums,0,n-1);
+        rev(nums,0,k-1);
+        rev(nums,k,n-1);
     }
 }
