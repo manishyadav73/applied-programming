@@ -3,8 +3,8 @@ class Solution {
     public int countGoodNumbers(long n) {
         long evenindices=(n+1)/2;
         long oddindices=n/2;
-        long ans=(power(5,evenindices)*power(4,oddindices)) % MOD;
-        return (int)ans;
+        long res=(power(5,evenindices)*power(4,oddindices)) % MOD;
+        return (int)res;
 
     }
  private static long power(long x,long n){
