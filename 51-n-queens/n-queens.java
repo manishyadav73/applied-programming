@@ -28,7 +28,6 @@ class Solution {
             return;
         }
 
-        // Try every column in the current row
         for (int col = 0; col < n; col++) {
 
             if (isSafe(row, col, board, n)) {
